@@ -1,6 +1,6 @@
 FROM alpine:3.4
 
-RUN apk add --no-cache clamav-daemon clamav-scanner clamav-libunrar rsync wget curl gnupg git tini bash \
+RUN apk add --no-cache clamav-daemon clamav-scanner clamav-libunrar rsync wget curl gnupg git tini bash
 
 ADD . /tmp/build-src/
 RUN mkdir /run/clamav/ \
