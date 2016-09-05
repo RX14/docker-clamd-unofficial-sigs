@@ -6,6 +6,7 @@ ADD . /tmp/build-src/
 RUN mkdir /run/clamav/ \
  && chown clamav:clamav /run/clamav \
  && cp /tmp/build-src/clamd.conf /etc/clamav/clamd.conf \
+ && sed -i 's#/var/lib/clamav#/data/clamav#' /etc/clamav/freshclam.conf \
 
  && git clone https://github.com/extremeshok/clamav-unofficial-sigs/ /tmp/clamav-unofficial-sigs/ \
  && mkdir -p /usr/local/bin/ /var/log/clamav-unofficial-sigs/ /etc/clamav-unofficial-sigs/ \
