@@ -14,6 +14,7 @@ RUN mkdir /run/clamav/ \
  && chmod +x /usr/local/bin/clamav-unofficial-sigs.sh \
  && cp /tmp/clamav-unofficial-sigs/config/*.* /etc/clamav-unofficial-sigs/ \
  && cp /tmp/build-src/os.docker.conf /etc/clamav-unofficial-sigs/os.conf \
+ && chown clamav:clamav /etc/clamav-unofficial-sigs/os.conf \
 
  && cp /tmp/build-src/start.sh /usr/local/bin/start.sh \
  && chmod +x /usr/local/bin/start.sh \

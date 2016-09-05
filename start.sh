@@ -23,7 +23,11 @@ fi
 
 if [ ! "$(ls /data/clamav/)" ]; then
     echo "No databases detected: updating signatures for first-time run"
+
+    prev_file=$(cat /etc/clamav-unofficial-sigs/os.conf)
+    echo 'enable_random="no"' >> /etc/clamav-unofficial-sigs/os.conf
     update_sigs
+    echo "$prev_file" > /etc/clamav-unofficial-sigs/os.conf
 fi
 
 (while true; do sleep 1h; update_sigs; done) &
