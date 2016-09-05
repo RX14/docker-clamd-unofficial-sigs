@@ -11,10 +11,15 @@ update_sigs() {
     /usr/local/bin/clamav-unofficial-sigs.sh --verbose
 }
 
-mkdir /data/clamav
-chown clamav:clamav /data/clamav
-mkdir /data/clamav-unofficial-sigs
-chown clamav:clamav /data/clamav-unofficial-sigs
+if [ ! -d "/data/clamav" ]; then
+    mkdir /data/clamav 
+    chown clamav:clamav /data/clamav
+fi
+
+if [ ! -d "/data/clamav-unofficial-sigs" ]; then
+    mkdir /data/clamav-unofficial-sigs
+    chown clamav:clamav /data/clamav-unofficial-sigs
+fi
 
 if [ ! "$(ls /data/clamav/)" ]; then
     echo "No databases detected: updating signatures for first-time run"
