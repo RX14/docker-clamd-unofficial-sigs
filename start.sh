@@ -16,7 +16,7 @@ chown clamav:clamav /data/clamav
 mkdir /data/clamav-unofficial-sigs
 chown clamav:clamav /data/clamav-unofficial-sigs
 
-if [ ! "$(ls /var/lib/clamav/)" ]; then
+if [ ! "$(ls /data/clamav/)" ]; then
     echo "No databases detected: updating signatures for first-time run"
     update_sigs
 fi
